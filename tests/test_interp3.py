@@ -2,7 +2,14 @@ import unittest
 import numpy as np
 from scipy.interpolate import CubicSpline as CubicSplineScipy
 import QuantLib as ql
-from interp3 import CubicSpline
+import sys
+import os
+# Get the absolute path of the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+from backend import CubicSpline
 
 class TestCubicSpline(unittest.TestCase):
     def setUp(self):

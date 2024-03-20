@@ -1,6 +1,6 @@
 import QuantLib as ql
 import pandas as pd
-from interp3 import CubicSpline
+from backend import CubicSpline
 
 
 class Schedule(pd.DataFrame):
@@ -30,7 +30,11 @@ class Schedule(pd.DataFrame):
         schedule["DiscountRateStart"] = [1 / (1 + rate * dayCountFraction) for rate, dayCountFraction in zip(schedule["ReferenceRateSart"], schedule["DayCountFraction"])]
         schedule["DiscountRateEnd"] = [1 / (1 + rate * dayCountFraction) for rate, dayCountFraction in zip(schedule["ReferenceRateEnd"], schedule["DayCountFraction"])]
 
-        return schedule
+        
+        schedule["MidDate"] = [str(date) for date in schedule["MidDate"]]
+        schedule["StartDate"] = [str(date) for date in schedule["StartDate"]]
+        schedule["EndDate"] = [str(date) for date in schedule["EndDate"]]
+        return schedule.to_json()
 
     @staticmethod
     def get_repayment(bank_comitment):
