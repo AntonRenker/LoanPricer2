@@ -15,4 +15,4 @@ if __name__ == "__main__":
         "facilityType": 1, # 1 for Fixed Rate Amortizing Loan 
         "bankComitment0": 1_000_000, # Currency is assumed to be EUR
     }
-    schedule_jaso = Schedule.init_with_ql(input=input)
+    schedule_jason = Schedule.init_with_ql(input=input)

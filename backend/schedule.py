@@ -34,7 +34,7 @@ class Schedule(pd.DataFrame):
         schedule["MidDate"] = [str(date) for date in schedule["MidDate"]]
         schedule["StartDate"] = [str(date) for date in schedule["StartDate"]]
         schedule["EndDate"] = [str(date) for date in schedule["EndDate"]]
-        return schedule.to_json()
+        return schedule
 
     @staticmethod
     def get_repayment(bank_comitment):
