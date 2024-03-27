@@ -35,6 +35,7 @@ if __name__ == "__main__":
         repayment = schedule["Repayment"].values
         discount_at_end = schedule["DiscountRateEnd"].values
         day_count_fraction = schedule["DayCountFraction"].values
+        print(bank_commitment)
 
         izv = ImpliedIZV(bank_commitment, repayment, discount_at_end, day_count_fraction)
         print(izv.implied_izv)
